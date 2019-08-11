@@ -1,0 +1,123 @@
+@@ -22,6 +22,12 @@ First php-assignment for Webutvecklare 2018 @ Yrgo. Create a simple news feed ma
+        (add those blocks with @param before functions)
+        -add descriptions in comments of what my code does
+        -which functions should go in functions.php file?
+        -ask about how things are supposed to be divided - (header.php, index.php, footer.php - where do types declarations go, where do I require functions.php)
+        -indentation in index.php (and header.php and footer.php)
+        -->
+
+
+@@ -37,11 +43,13 @@ First php-assignment for Webutvecklare 2018 @ Yrgo. Create a simple news feed ma
+
+- posts.php - file containing foreach loop looping through articles and some html tags to structure content for each post (will be 'required' in index.php)
+
+- header.php - will contain header for index.php
+- header.php - Header for index.php, including html markup for nav bar
+
+- footer.php - Footer for index.php
+
+- footer.php - will contain footer for index.php
+- functions.php - Contains getAuthor, compare, and getPblshDate functions
+
+- functions.php - (not yet sure if to be created) (would contain functions)
+- content: Folder containing txt files with text content for each article
+
+
+### TO-DO list:
+@@ -67,7 +75,7 @@ First php-assignment for Webutvecklare 2018 @ Yrgo. Create a simple news feed ma
+
+##### October 27, 2018
+
+- [ ] Create function to order articles chronologically
+- [x] Create function to order articles chronologically
+- [ ] Sanitize and improve array-content and txt files content
+- [ ] Go through assignment on github to ensure all requirements are met
+
+
+20  assets/data.php
+@@ -5,70 +5,70 @@
+$articles = [
+  [
+    'title' => 'Hogwarts and Beyond',
+    'content' => file_get_contents(__DIR__.'/../txts/001.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/001.txt'),
+    'author' => 1,
+    'pblsh-date' => '2018-10-24',
+    'likes' => '162'
+  ],
+  [
+    'title' => 'The Overcoat',
+    'content' => file_get_contents(__DIR__.'/../txts/002.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/002.txt'),
+    'author' => 0,
+    'pblsh-date' => '2017-08-10',
+    'likes' => '111'
+  ],
+  [
+    'title' => 'Viy',
+    'content' => file_get_contents(__DIR__.'/../txts/003.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/003.txt'),
+    'author' => 0,
+    'pblsh-date' => '2018-06-15',
+    'likes' => '157'
+  ],
+  [
+    'title' => 'Pride and Prejudice',
+    'content' => file_get_contents(__DIR__.'/../txts/004.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/004.txt'),
+    'author' => 1,
+    'pblsh-date' => '2017-04-23',
+    'likes' => '145'
+  ],
+  [
+    'title' => 'Alice in Wonderland',
+    'content' => file_get_contents(__DIR__.'/../txts/005.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/005.txt'),
+    'author' => 4,
+    'pblsh-date' => '2018-03-02',
+    'likes' => '199'
+  ],
+  [
+    'title' => 'Heart of a Dog',
+    'content' => file_get_contents(__DIR__.'/../txts/006.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/006.txt'),
+    'author' => 2,
+    'pblsh-date' => '2018-10-31',
+    'likes' => '194'
+  ],
+  [
+    'title' => 'Master and Margarita',
+    'content' => file_get_contents(__DIR__.'/../txts/007.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/007.txt'),
+    'author' => 2,
+    'pblsh-date' => '2018-02-11',
+    'likes' => '666'
+  ],
+  [
+    'title' => 'Sherlock Holmes',
+    'content' => file_get_contents(__DIR__.'/../txts/008.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/008.txt'),
+    'author' => 3,
+    'pblsh-date' => '2017-07-18',
+    'likes' => '78'
+  ],
+  [
+    'title' => 'The Great Gatsby',
+    'content' => file_get_contents(__DIR__.'/../txts/009.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/009.txt'),
+    'author' => 3,
+    'pblsh-date' => '2018-07-21',
+    'likes' => '176'
+  ],
+  [
+    'title' => 'Roll of Thunder Hear My Cry',
+    'content' => file_get_contents(__DIR__.'/../txts/010.txt'),
+    'content' => file_get_contents(__DIR__.'/../content/010.txt'),
+    'author' => 4,
+    'pblsh-date' => '2018-05-23',
+    'likes' => '184'
+
+2  assets/functions.php
+@@ -24,6 +24,4 @@ function getPblshDate($pblshDate)
+}
+ ?>
